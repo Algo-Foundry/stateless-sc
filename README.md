@@ -1,0 +1,1 @@
+# Stateless smart contract assignment
