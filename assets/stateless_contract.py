@@ -4,7 +4,7 @@ sys.path.insert(0,'.')
 from algobpy.parse import parse_params
 from pyteal import *
 
-def delegated_approval(receiver_addr):
+def stateless_contract(receiver_addr):
 
     def basic_checks(txn: Txn): return And(
         txn.rekey_to() == Global.zero_address(),
@@ -31,4 +31,4 @@ if __name__ == "__main__":
     if(len(sys.argv) > 1):
         params = parse_params(sys.argv[1], params)
 
-    print(compileTeal(delegated_approval(params["RECEVIER"]), mode=Mode.Signature, version=5))
+    print(compileTeal(stateless_contract(params["RECEVIER"]), mode=Mode.Signature, version=5))
