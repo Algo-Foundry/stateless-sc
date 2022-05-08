@@ -5,7 +5,7 @@ In this assignment, you will be tasked to write a [hashed time lock contract (ht
 Essentially, this is a stateless smart contract that only allows accounts to withdraw funds from it if a secret is supplied. This secret is usually given by the creator. The contract creator can also recover the funds from this contract after a certain period of time.
 
 ### Stateless contract
-Complete the code in `assets/htlc.py` so that this stateless smart contract checks the following,
+Complete the code in `assets/htlc.py` so that this stateless smart contract performs basic checks for all transactions and does either fund withdrawal check or fund recovery check.
 
 #### Basic checks
 1. `rekey to` and `close remainder to` addresses are not found in the transaction.
