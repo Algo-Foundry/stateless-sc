@@ -10,7 +10,6 @@ Complete the code in `assets/htlc.py` so that this stateless smart contract perf
 #### Basic checks
 1. `rekey to` and `close remainder to` addresses are not found in the transaction.
 2. Transaction is a payment type transaction.
-3. Receiver belongs to `acc2` address.
 
 #### Fund withdrawal checks
 1. Receiver is `acc2` address.
