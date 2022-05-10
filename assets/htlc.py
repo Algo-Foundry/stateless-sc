@@ -14,18 +14,18 @@ def htlc(acc1_addr, acc2_addr, hash, timeout):
     )
 
     rcv_cond = And(
-        Txn.receiver() == Addr(acc2_addr),
+        basic_checks,
         Sha256(Arg(0)) == Bytes("base64", hash)
     )
 
     timeout_cond = And(
-        Txn.receiver() == Addr(acc1_addr),
+        basic_checks,
         Txn.first_valid() > Int(timeout)
     )
 
-    program = And(
-        basic_checks,
-        Or(rcv_cond, timeout_cond)
+    program = Cond(
+        [Txn.receiver() == Addr(acc2_addr), rcv_cond],
+        [Txn.receiver() == Addr(acc1_addr), timeout_cond]
     )
 
     return program

@@ -4,10 +4,10 @@ async function run(runtimeEnv, deployer) {
     // get required info
     const { acc1, scTemplateParams } = prepareParameters(deployer);
 
-    // for simplicity sake, acc1 can retrieve funds after 10 round
+    // for simplicity sake, acc1 can retrieve funds after 50 rounds
     const algodClient = deployer.algodClient;
     const chainStatus = await algodClient.status().do();
-    const timeoutBlockcount = chainStatus['last-round'] + 10;
+    const timeoutBlockcount = chainStatus['last-round'] + 50;
     scTemplateParams.timeout = timeoutBlockcount;
 
     // fund the escrow contract with 10 Algos so it becomes a contract account
