@@ -40,7 +40,7 @@ Complete the code in `scripts/withdraw/withdraw_htlc.js` to perform the withdraw
 
 Test the following scenarios,
 1. Send transaction with a wrong secret.
-2. Send transaction with a corret secret.
+2. Send transaction with a correct secret.
 
 After which, attempt to send 1 Algo to `acc1`. This transaction should be rejected unless 10 block rounds passed.
 
