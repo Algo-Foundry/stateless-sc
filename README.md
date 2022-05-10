@@ -36,17 +36,23 @@ yarn run algob clean
 ```
 
 ### Withdrawal
-Complete the code in `scripts/withdraw/withdraw_htlc.js` to perform the withdrawal transaction of 1 Algo from the contract to `acc2`.
+Complete the code in `scripts/actions/withdraw.js` to perform the withdrawal transaction of 1 Algo from the contract to `acc2`.
 
 Test the following scenarios,
 1. Send transaction with a wrong secret.
 2. Send transaction with a correct secret.
 
-After which, attempt to send 1 Algo to `acc1`. This transaction should be rejected unless 10 block rounds passed.
-
 To run the withdrawal script
 ```
-yarn run algob run scripts/withdraw/withdraw_htlc.js
+yarn run algob run scripts/actions/withdraw.js
+```
+
+### Recover Fund
+Complete the code in `scripts/actions/recover_fund.js`. The contract account should attempt to send 1 Algo to `acc1`, which will be rejected unless 10 block rounds passed.
+
+To run the fund recovery script
+```
+yarn run algob run scripts/actions/recover_fund.js
 ```
 
 ### Hints
