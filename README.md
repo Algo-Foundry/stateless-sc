@@ -23,7 +23,7 @@ Complete the code in `assets/htlc.py` so that this stateless smart contract perf
 ### Contract deployment
 Complete the code in `scripts/htlc.js` to fund this stateless smart contract. Calculate the timeout value and update the contract's template parameters before deployment. Save the timeout as a checkpoint key value pair for later use.
 
-The contract's template parameters are created via `scripts/withdraw/common.js`. 
+The contract's template parameters are created via `scripts/withdraw/common.js`. You can retrieve them via `prepareParameters()`.
 
 To deploy the contract
 ```
