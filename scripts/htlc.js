@@ -1,4 +1,4 @@
-const { prepareParameters } = require("./withdraw/common");
+const { prepareParameters } = require("./actions/common");
 
 async function run(runtimeEnv, deployer) {
     // get required info
