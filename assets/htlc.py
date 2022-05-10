@@ -6,9 +6,27 @@ from pyteal import *
 
 def htlc(acc1_addr, acc2_addr, hash, timeout):
 
-    # write your code here
+    basic_checks = And(
+        Txn.type_enum() == TxnType.Payment,
+        Txn.rekey_to() == Global.zero_address(),
+        Txn.close_remainder_to() == Global.zero_address(),
+        Txn.fee() <= Int(1000)
+    )
 
-    program = Return(1)
+    rcv_cond = And(
+        Txn.receiver() == Addr(acc2_addr),
+        Sha256(Arg(0)) == Bytes("base64", hash)
+    )
+
+    timeout_cond = And(
+        Txn.receiver() == Addr(acc1_addr),
+        Txn.first_valid() > Int(timeout)
+    )
+
+    program = And(
+        basic_checks,
+        Or(rcv_cond, timeout_cond)
+    )
 
     return program
 
