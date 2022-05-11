@@ -47,7 +47,7 @@ yarn run algob run scripts/actions/withdraw.js
 ```
 
 ### Recover Fund
-Complete the code in `scripts/actions/recover_fund.js`. The contract account should attempt to send 1 Algo to `acc1`, which will be rejected unless 10 block rounds passed.
+Complete the code in `scripts/actions/recover_fund.js`. The contract account should attempt to send 1 Algo to `acc1`, which will be rejected unless 50 block rounds passed.
 
 To run the fund recovery script
 ```
