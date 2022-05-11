@@ -20,7 +20,7 @@ Complete the code in `assets/htlc.py` so that this stateless smart contract perf
 2. Current block round is past the `timeout` value supplied. For simplicity sake, assume `timeout` value is `50` rounds ahead of the block round when the contract account is first created.
 
 ### Contract deployment
-Complete the code in `scripts/htlc.js` to fund this stateless smart contract. Calculate the timeout value and update the contract's template parameters before deployment. Save the timeout as a checkpoint key value pair for later use.
+Complete the code in `scripts/htlc.js` to fund this stateless smart contract. Calculate the timeout value and update the contract's template parameters before deployment. Save the timeout as a checkpoint key value pair for later use. The reason for this is because you need to supply the same template parameters whenever you need to compile the program and submit transactions with it.
 
 The contract's template parameters are created via `scripts/withdraw/common.js`. You can retrieve them via `prepareParameters()`.
 
@@ -55,8 +55,6 @@ yarn run algob run scripts/actions/recover_fund.js
 ```
 
 ### Hints
-You will need to create a checkpoint to store the calculated block round when creating the contract account. This value can be retrieved and used  whenever you need to compile the stateless contract.
-
 Refer to the following links for documentation,
 1. [Algo Builder API](https://algobuilder.dev/api/algob/index.html)
 2. [Algo Builder Transaction Syntax](https://github.com/scale-it/algo-builder/blob/master/docs/guide/execute-transaction.md)
