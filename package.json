@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:afcharliekong/stateless-sc.git",
-  "author": "Charlie Kong <charlie@undercurrent.tech>",
+  "author": "Charlie Kong <charlie@algofoundry.studio>",
   "license": "MIT",
   "dependencies": {
     "@algo-builder/algob": "^3.2.0",
