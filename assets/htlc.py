@@ -13,19 +13,19 @@ def htlc(acc1_addr, acc2_addr, hash, timeout):
         Txn.fee() <= Int(1000)
     )
 
-    rcv_cond = And(
+    withdraw = And(
         basic_checks,
         Sha256(Arg(0)) == Bytes("base64", hash)
     )
 
-    timeout_cond = And(
+    recover_fund = And(
         basic_checks,
         Txn.first_valid() > Int(timeout)
     )
 
     program = Cond(
-        [Txn.receiver() == Addr(acc2_addr), rcv_cond],
-        [Txn.receiver() == Addr(acc1_addr), timeout_cond]
+        [Txn.receiver() == Addr(acc2_addr), withdraw],
+        [Txn.receiver() == Addr(acc1_addr), recover_fund]
     )
 
     return program
