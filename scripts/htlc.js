@@ -11,7 +11,7 @@ async function run(runtimeEnv, deployer) {
     scTemplateParams.timeout = timeoutBlockcount;
 
     // fund the escrow contract with 10 Algos so it becomes a contract account
-    await deployer.fundLsig(
+    await deployer.fundLsigByFile(
         "htlc.py",
         { funder: acc1, fundingMicroAlgo: 1e7 },
         { fee: 1000 },
